@@ -6,7 +6,7 @@ import typing as t
 
 from singer_sdk import RESTStream
 from singer_sdk.authenticators import BearerTokenAuthenticator
-from singer_sdk.pagination import BaseAPIPaginator, BaseOffsetPaginator
+from singer_sdk.pagination import BaseOffsetPaginator
 
 
 class PhenomStream(RESTStream[t.Any]):
@@ -39,7 +39,7 @@ class PhenomStream(RESTStream[t.Any]):
         """
         return {"User-Agent": f"{self.tap_name}/{self._tap.plugin_version}"}
 
-    def get_new_paginator(self) -> BaseAPIPaginator:
+    def get_new_paginator(self) -> BaseOffsetPaginator:
         """Get a pagination object."""
         return BaseOffsetPaginator(start_value=0, page_size=self.page_size)
 

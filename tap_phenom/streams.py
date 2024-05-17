@@ -6,6 +6,10 @@ from singer_sdk import typing as th
 
 from tap_phenom.client import PhenomStream
 
+__all__ = [
+    "Jobs",
+]
+
 
 class Jobs(PhenomStream):
     """Jobs stream."""

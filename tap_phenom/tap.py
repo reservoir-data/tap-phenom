@@ -29,5 +29,5 @@ class TapPhenom(Tap):
             A list of Phenom streams.
         """
         return [
-            streams.Jobs(stream=self),
+            streams.Jobs(tap=self),
         ]
