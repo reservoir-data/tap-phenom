@@ -1,0 +1,29 @@
+version: 1
+send_anonymous_usage_stats: false
+project_id: tap-phenom
+default_environment: dev
+environments:
+- name: dev
+plugins:
+  extractors:
+  - name: tap-phenom
+    label: Phenom
+    namespace: phenom
+    description: Intelligent Talent Experience platform
+    repository: https://github.com/reservoir-data/tap-phenom
+    docs: https://github.com/reservoir-data/tap-phenom#readme
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    settings:
+    - name: token
+      kind: password
+      label: API Token
+      description: API Token for Phenom
+      sensitive: true
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
